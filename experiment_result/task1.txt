@@ -2,8 +2,8 @@
 chỉnh_hình - luồng : -0.17341. By sklearn is: -0.17341 
 tay_cầm - phân_đạm : -0.03026. By sklearn is: -0.03026 
 * Độ tương tự trung bình: 
-vượt_tuyến - dứt_điểm : 0.25933. By sklearn is: -1.00000 
 bí_hiểm - bí_mật : 0.28764. By sklearn is: 0.28764 
+lưu_thông - ách tắc : 0.29064. By sklearn is: 0.29064 
 * Độ tương tự cao: 
 khung_thành - cầu_môn : 0.90573. By sklearn is: 0.90573 
 khử_trùng - sát_trùng : 0.70523. By sklearn is: 0.70523 
