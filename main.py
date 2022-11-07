@@ -3,11 +3,9 @@ import numpy as np
 
 from sklearn.utils import shuffle
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.linear_model import LogisticRegression, SGDClassifier, Perceptron
-from sklearn.neural_network import MLPClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
+from sklearn.neural_network import MLPClassifier
 
 import config
 from data_utils import *
@@ -19,7 +17,7 @@ def calculate_similarity(first_word: str, second_word: str, embbed_model):
     second_word_vector = get_word_vector(second_word, embbed_model)
 
     if first_word_vector and second_word_vector: # check if two vector is not null
-        if (len(first_word_vector) != len(second_word_vector)):
+        if (len(first_word_vector) != len(second_word_vector)): # check if 2 vector is not equal size
             raise Exception("Error in retrival 2 word vector")
         
         numerator = 0
@@ -31,8 +29,7 @@ def calculate_similarity(first_word: str, second_word: str, embbed_model):
             first_denominator += pow(first_word_vector[i], 2)
             second_denominator += pow(second_word_vector[i], 2)
         
-        return numerator/(sqrt(first_denominator)*sqrt(second_denominator))
-            
+        return numerator/(sqrt(first_denominator)*sqrt(second_denominator))       
     else:
         return "Unknown"
 
@@ -51,7 +48,7 @@ def find_K_nearest_word(target_word: str, _k: int, embbed_model) -> list:
             if len(word_list) > _k+1:
                 break
             else: 
-                word_list.append([word, sorted_dict[word]])
+                word_list.append((word, sorted_dict[word]))
 
         return word_list[1:]
     else:
@@ -66,7 +63,7 @@ def main():
     else: 
         embbed_model = load_ft_model(config.FASTTEXT_MODEL_PATH) #fasttext embedding model
 
-    
+
     ###############################  BÀI I  ###############################
     print("=" * 20 + " Bài 1 " + "=" * 20)
     
@@ -90,7 +87,7 @@ def main():
 
     export_task1_result(task1_data, oov_count)
     print("Result in: '{}'".format(config.TASK1_RESULT_PATH), "\n")
-
+    
 
     ###############################  BÀI II  ###############################
     print("=" * 20 + " Bài 2 " + "=" * 20)
@@ -103,11 +100,11 @@ def main():
     l2 = find_K_nearest_word(target_word_2, k_parameter, embbed_model)
     export_task2_result(target_word_1, target_word_2 ,l1, l2, k_parameter)
     print("Result in: '{}'".format(config.TASK2_RESULT_PATH), "\n")
-    
+
 
     ###############################  BÀI IIII  ###############################
     print("=" * 20 + " Bài 3 " + "=" * 20)
-    base_model = Perceptron()
+    base_model = MLPClassifier()
     classifier_model = Classifier(embbed_model, base_model)
 
     # load data
@@ -119,7 +116,7 @@ def main():
     x_train, y_train = classifier_model.generate_train_data(antonym_data, synonym_data)
     x_test, y_test = classifier_model.generate_test_data(test_data)
     
-    # shuffle
+    # shuffle training data
     _x, _y = shuffle(x_train, y_train)
 
     # training

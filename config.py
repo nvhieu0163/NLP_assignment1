@@ -11,11 +11,12 @@ WORD2VEC_MODEL_PATH = "./pretrain_models/W2V_150.txt"
 FASTTEXT_MODEL_PATH = "./pretrain_models/cc.vi.150.bin"
 
 ## PATH for datasets
+# train
 ANTONYM_DATA_PATH = "./datasets/Antonym_vietnamese.txt"
 SYNONYM_DATA_PATH = "./datasets/Synonym_vietnamese.txt"
-
+# test
 TASK1_TEST_DATA_PATH = "./datasets/Visim-400.txt"
-TASK3_TEST_DATA_PATH = "./datasets/400_verb_pairs.txt"
+TASK3_TEST_DATA_PATH = "./datasets/600_adj_pairs.txt"
 
 ## PATH for task output result
 TASK1_RESULT_PATH = "./experiment_result/task1.txt"

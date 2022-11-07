@@ -1,8 +1,3 @@
----------- Performance of LinearSVC model in 600_adj_pairs.txt ----------
-Precision: 0.6779026217228464
-Recall: 0.7973568281938326
-F1: 0.7327935222672065
-
 ---------- Performance of LogisticRegression model in 400_noun_pairs.txt ----------
 Precision: 0.562962962962963
 Recall: 0.987012987012987
@@ -13,8 +8,13 @@ Precision: 0.5407407407407407
 Recall: 0.954248366013072
 F1: 0.6903073286052009
 
----------- Performance of Perceptron model in 400_verb_pairs.txt ----------
-Precision: 0.5183823529411765
-Recall: 0.9215686274509803
-F1: 0.6635294117647059
+---------- Performance of LinearSVC model in 600_adj_pairs.txt ----------
+Precision: 0.6991525423728814
+Recall: 0.7268722466960352
+F1: 0.7127429805615552
+
+---------- Performance of MLPClassifier model in 600_adj_pairs.txt ----------
+Precision: 1.0
+Recall: 1.0
+F1: 1.0
 

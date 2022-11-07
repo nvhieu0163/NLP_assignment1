@@ -79,7 +79,7 @@ def export_task1_result(task1_result_dict, oov_count):
 def export_task2_result(tg_word1, tg_word2 ,l1, l2, k):
     with open(config.TASK2_RESULT_PATH, 'w', encoding='utf-8') as f:
         f.write("The most {} nearest words with '{}' are: \n".format(k, tg_word1))
-        f.write(str(l1) + "\n")
+        f.write(str(l1) + 2*"\n")
         f.write("The most {} nearest words with '{}' are: \n".format(k, tg_word2))
         f.write(str(l2) + "\n")
 
